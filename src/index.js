@@ -1,34 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class AnimationText extends React.Component {
+class CalcForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { color: 'black' };
-        this.red = this.red.bind(this);
-        this.green = this.green.bind(this);
-        this.blue = this.blue.bind(this);
+        this.state = { value1: '',value1isValid: false, value2: '', value2isValid: false };
+        this.onChange = this.onChange.bind(this);
+        /*this.add = this.add.bind(this);
+        this.sub = this.sub.bind(this);
+        this.mul = this.mul.bind(this);
+        this.div = this.div.bind(this);*/
     }
-    red() {
-        this.setState({ color: 'red' });
+    value1isValid(value1) {
+        if (typeof value1 === 'number' && !isNaN(value1)) {
+            return true;
+        }
+        return false;
     }
-    green() {
-        this.setState({ color: 'green' });
+    value2isValid(value2) {
+        if (typeof value2 === 'number' && !isNaN(value2)) {
+            return true;
+        }
+        return false;
     }
-    blue() {
-        this.setState({ color: 'blue' });
+    onChange(event) {
+        console.log(typeof event.target.value + event.target.value);
+        this.setState({ value1: +event.target.value/*, value2: event.target.value*/ });
     }
     render() {
         return (
-            <>
-                <div style={this.state}> {this.props.text} </div>
-                <button type='button' onClick={this.red}>red</button>
-                <button type='button' onClick={this.green}>green</button>
-                <button type='button' onClick={this.blue}>blue</button>
-            </>
-        )
+            <form>
+                <label htmlFor="value1">value1:</label>
+                <input type="number" name="value1" value={this.state.value1} onChange={this.onChange} />
+                <br />
+                <label htmlFor="value2">value2:</label>
+                <input type="number" name="value2" value={this.state.value2} onChange={this.onChange} />
+                <br />
+                <button type="button" onClick={this.onChange}>Say hello</button>
+            </form>
+        );
     }
-};
+}
 
-ReactDOM.render(<AnimationText text='AnimationText' />,
-    document.getElementById('div1'))
+
+ReactDOM.render(
+    <CalcForm />,
+    document.getElementById("div1")
+);
