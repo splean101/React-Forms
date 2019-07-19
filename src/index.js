@@ -24,8 +24,8 @@ class CalcForm extends React.Component {
         return false;
     }
     onChange(event) {
-        console.log(typeof event.target.value + event.target.value);
-        this.setState({ value1: +event.target.value/*, value2: event.target.value*/ });
+        //console.log(typeof event.target.value + event.target.value);
+        this.setState({ value1: +event.target.value, value1isValid: this.value1isValid(event.target.value)});
     }
     render() {
         return (
