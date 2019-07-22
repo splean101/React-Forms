@@ -14,22 +14,22 @@ class CalcForm extends React.Component {
     }
     
     value1isValid(value1) {
-        if (typeof value1 === 'number' && !isNaN(value1)) {
+        if (!isNaN(value1)) {
             return true;
         }
         return false;
     }
     value2isValid(value2) {
-        if (typeof value2 === 'number' && !isNaN(value2)) {
+        if (!isNaN(value2)) {
             return true;
         }
         return false;
     }
     onChange1(event) {
-        this.setState({ value1: +event.target.value, value1isValid: this.value1isValid(+event.target.value)});
+        this.setState({ value1: Number(event.target.value), value1isValid: this.value1isValid(Number(event.target.value))});
     }
     onChange2(event) {
-        this.setState({ value2: +event.target.value, value1isValid: this.value2isValid(+event.target.value)});
+        this.setState({ value2: Number(event.target.value), value1isValid: this.value2isValid(Number(event.target.value))});
     }
     add (){
         return this.setState({res: this.state.value1 + this.state.value2});
@@ -44,8 +44,8 @@ class CalcForm extends React.Component {
         return this.setState({res: this.state.value1 / this.state.value2});
     }
     render() {
-        let val1Color = this.value1isValid === true ? 'blue' : 'red';
-        let val2Color = this.value2isValid === true ? 'blue' : 'red';
+        let val1Color = this.state.value1isValid ? 'blue' : 'red';
+        let val2Color = this.state.value2isValid ? 'blue' : 'red';
         return (
             <form>
                 <label htmlFor="value1">value1:</label>
