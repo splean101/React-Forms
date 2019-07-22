@@ -65,8 +65,4 @@ class CalcForm extends React.Component {
     }
 }
 
-
-ReactDOM.render(
-    <CalcForm />,
-    document.getElementById("div1")
-);
+ReactDOM.render(<CalcForm />, document.getElementById("div1"));
