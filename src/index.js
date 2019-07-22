@@ -49,10 +49,10 @@ class CalcForm extends React.Component {
         return (
             <form>
                 <label htmlFor="value1">value1:</label>
-                <input type="number" name="value1" value={this.state.value1} onChange={this.onChange1} style={{borderColor: val1Color}}/>
+                <input type="number" name="value1" value={this.state.value1} onChange={this.onChange1} style={{color: val1Color}}/>
                 <br />
                 <label htmlFor="value2">value2:</label>
-                <input type="number" name="value2" value={this.state.value2} onChange={this.onChange2} style={{borderColor: val2Color}}/>
+                <input type="number" name="value2" value={this.state.value2} onChange={this.onChange2} style={{color: val2Color}}/>
                 <br />
                 <button type="button" onClick={this.add}>+</button>
                 <button type="button" onClick={this.sub}>-</button>
