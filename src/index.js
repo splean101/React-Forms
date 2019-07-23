@@ -24,13 +24,13 @@ class CalcForm extends React.Component {
         return false;
     }
     onChange(event) {
-        const{name, value} = event.target;
-        this.setState({ [name]: Number(value)});
-        if(name === 'value1'){
-            this.setState({value1isValid: this.value1isValid(Number(value))});
-        } else{
+        const { name, value } = event.target;
+        this.setState({ [name]: Number(value) });
+        if (name === 'value1') {
+            this.setState({ value1isValid: this.value1isValid(Number(value)) });
+        } else {
             this.setState({ value2isValid: this.value2isValid(Number(value)) });
-        }       
+        }
     }
     add() {
         return this.setState({ res: this.state.value1 + this.state.value2 });
@@ -46,7 +46,7 @@ class CalcForm extends React.Component {
     }
     render() {
         let val1Color = this.state.value1isValid ? 'blue' : 'red';
-        let val2Color = this.state.value2isValid ? 'blue' : 'red';      
+        let val2Color = this.state.value2isValid ? 'blue' : 'red';
         return (
             <form>
                 <label htmlFor="value1">value1:</label>
